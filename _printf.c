@@ -20,15 +20,19 @@ int _printf(const char *format, ...)
 	va_start(arg_ptr, format);
 	while (format && format[len])
 	{
-		if (format[len] != '%')
+		if (format[len] != '%' && format[len] != '\\')
 		{
 			_putchar(format[len]);
 		}
 		else if (format[len] == '%')
 		{
 			len++;
-			if (format[len] == 'c')
+			if (format[len] == '%')
+				_putchar(format[len]);
+			else if (format[len] == 'c')
 				_putchar(va_arg(arg_ptr, int));
+			else if (format[len] == 'd' || format[len] == 'i')
+				_len(va_arg(arg_ptr, int));
 			else if (format[len] == 's')
 			{
 				string = va_arg(arg_ptr, char *);
