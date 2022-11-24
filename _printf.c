@@ -41,6 +41,8 @@ int _printf(const char *format, ...)
 			if (format[len] == '%')
 				_putchar(format[len]);
 		}
+		else
+			_printf(format);
 		len++;
 	}
 	va_end(arg_ptr);
