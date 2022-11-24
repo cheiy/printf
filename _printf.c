@@ -1,6 +1,7 @@
 #include "main.h"
 #include <unistd.h>
 #include <stdarg.h>
+#include <stdlib.h>
 /**
  * _printf - Function that produces output according to a format
  * @format: String containing the format codes.
@@ -36,6 +37,8 @@ int _printf(const char *format, ...)
 			else if (format[len] == 's')
 			{
 				string = va_arg(arg_ptr, char *);
+				if (string == NULL)
+					return (-1);
 				while (*string != '\0')
 				{
 					_putchar(*string);
