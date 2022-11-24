@@ -20,16 +20,16 @@ int _printf(const char *format, ...)
 	va_start(arg_ptr, format);
 	while (format && format[len])
 	{
-		if (format[len] != '%' && format[len] != '\\')
+		if (format[len] != '%')
+		{
 			_putchar(format[len]);
+		}
 		else if (format[len] == '%')
 		{
 			len++;
 			if (format[len] == 'c')
 				_putchar(va_arg(arg_ptr, int));
-			if (format[len] == 'd' || format[len] == 'i')
-				_len(va_arg(arg_ptr, int));
-			if (format[len] == 's')
+			else if (format[len] == 's')
 			{
 				string = va_arg(arg_ptr, char *);
 				while (*string != '\0')
@@ -38,11 +38,7 @@ int _printf(const char *format, ...)
 					string++;
 				}
 			}
-			if (format[len] == '%')
-				_putchar(format[len]);
 		}
-		else
-			_printf(format);
 		len++;
 	}
 	va_end(arg_ptr);
@@ -73,7 +69,7 @@ void _len(int n)
 
 	if (n == 0)
 		_putchar('0');
-	else if (n < 10)
+	else if (n > 0 && n < 10)
 	{
 		_putchar(n + '0');
 	}
