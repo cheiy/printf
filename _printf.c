@@ -5,8 +5,7 @@
 /**
  * _printf - Function that produces output according to a format
  * @format: String containing the format codes.
- * Description: Function produces output according to a specified
- * format.
+ * Description: Function produces output according to a specified format.
  * Return: Number of chars printed.
  */
 int _printf(const char *format, ...)
@@ -18,7 +17,9 @@ int _printf(const char *format, ...)
 	_len_ptr = &real_len;
 	len = real_len = 0;
 	va_start(arg_ptr, format);
-	while (format[len] != '\0')
+	if (format == NULL)
+		exit(EXIT_FAILURE);
+	while (format && format[len] != '\0')
 	{
 		if (format[len] != '%' && format[len] != '\0')
 		{
@@ -37,7 +38,9 @@ int _printf(const char *format, ...)
 			else if (format[len] == 's')
 			{
 				string = va_arg(arg_ptr, char *);
-				while (*string != '\0')
+				if (!string)
+					string = "(null)";
+				while (string && *string != '\0')
 				{
 					_putchar(*string);
 					string++;
