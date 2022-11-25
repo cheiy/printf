@@ -41,7 +41,9 @@ int _printf(const char *format, ...)
 				{
 					_putchar(*string);
 					string++;
+					real_len++;
 				}
+				real_len--;
 			}
 			real_len++;
 		}
