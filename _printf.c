@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 		else if (format[len] == '%')
 		{
 			len++;
-			real_len += _percent(format[len], real_len, arg_ptr);
+			real_len = _percent(format[len], real_len, arg_ptr);
 		}
 		len++;
 	}
