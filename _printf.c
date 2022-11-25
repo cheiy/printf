@@ -48,8 +48,14 @@ int _printf(const char *format, ...)
 				}
 				real_len--;
 			}
-			else
+			else if (!format[len])
 				exit(EXIT_FAILURE);
+			else
+			{
+				_putchar(format[len - 1]);
+				_putchar(format[len]);
+				real_len++;
+			}
 			real_len++;
 		}
 		len++;
