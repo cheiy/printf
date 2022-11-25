@@ -15,36 +15,35 @@ int _printf(const char *format, ...)
 	int len;
 	char *string;
 	int *_len_ptr;
+	int next;
 
 	_len_ptr = &len;
 	len = 0;
+	next = 0;
 	va_start(arg_ptr, format);
-	while (format && format[len])
+	while (format[len] != '\0')
 	{
-		if (format[len] != '%' && format[len] != '\\')
+		if (format[len] != '%' && format[len] != '\0')
 		{
 			_putchar(format[len]);
 		}
 		else if (format[len] == '%')
 		{
-			len++;
-			if (format[len] == '%')
-				_putchar(format[len]);
-			else if (format[len] == 'c')
+			next = len + 1;
+			if (format[next] == '%')
+				_putchar(format[next]);
+			else if (format[next] == 'c')
 				_putchar(va_arg(arg_ptr, int));
-			else if (format[len] == 'd' || format[len] == 'i')
-				_len(va_arg(arg_ptr, int));
-			else if (format[len] == 's')
+			else if (format[next] == 's')
 			{
 				string = va_arg(arg_ptr, char *);
-				if (string == NULL)
-					return (-1);
 				while (*string != '\0')
 				{
 					_putchar(*string);
 					string++;
 				}
 			}
+			len++;
 		}
 		len++;
 	}
@@ -58,9 +57,9 @@ int _printf(const char *format, ...)
  *
  * Return: 0 if successful, 1 otherwise.
  */
-int _putchar(char ch)
+void _putchar(char ch)
 {
-	return (write(1, &ch, 1));
+	write(1, &ch, 1);
 }
 /**
  * _len - Function prints out numbers using _putchar

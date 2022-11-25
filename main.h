@@ -2,7 +2,7 @@
 #define _MAIN_H_
 
 int _printf(const char *format, ...);
-int _putchar(char ch);
+void _putchar(char ch);
 void _len(int n);
 
 #endif
