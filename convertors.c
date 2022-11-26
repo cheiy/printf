@@ -22,7 +22,7 @@ int _percent(char ch, int r_len, va_list arg_ptr)
 		_putchar(va_arg(arg_ptr, int));
 	else if (ch == 'd' || ch == 'i')
 	{
-		r_len = _len(va_arg(arg_ptr, int));
+		r_len += _len(va_arg(arg_ptr, int));
 		r_len--;
 	}
 	else if (ch == 's')

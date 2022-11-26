@@ -13,7 +13,14 @@ int _len(int n)
 	static unsigned int size;
 
 	size = 0;
-	if (n == 0)
+	if (n < 0)
+	{
+		_putchar('-');
+		n = n * -1;
+		_len(n);
+		size++;
+	}
+	else if (n == 0)
 	{
 		size++;
 		_putchar('0');
