@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdarg.h>
+#include <stdio.h>
 /**
  * _percent - Function handles the %
  * @ch: The current character in the format string.
@@ -20,7 +21,10 @@ int _percent(char ch, int r_len, va_list arg_ptr)
 	else if (ch == 'c')
 		_putchar(va_arg(arg_ptr, int));
 	else if (ch == 'd' || ch == 'i')
-		_len(va_arg(arg_ptr, int));
+	{
+		r_len = _len(va_arg(arg_ptr, int));
+		r_len--;
+	}
 	else if (ch == 's')
 	{
 		string = va_arg(arg_ptr, char *);
