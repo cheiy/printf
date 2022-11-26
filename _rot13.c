@@ -2,7 +2,7 @@
 
 /**
  * _rot13 - encode using ceasar cipher by replacing each
- * letter with the letter thirteen places down the 
+ * letter with the letter thirteen places down the
  * alphabet
  * @str: string
  * Return: string

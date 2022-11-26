@@ -1,5 +1,4 @@
-#include "main.c"
-#include <stdio.h>
+#include "main.h"
 
 /**
  * _reverse - prints strings from last charcter
