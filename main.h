@@ -6,5 +6,7 @@ void _putchar(char ch);
 void _reverse(char *s);
 char *_rot13(char *str);
 int _len(int n);
+void _min(void);
+void _100plus(int);
 int _percent(char ch, int r_len, va_list v);
 #endif
