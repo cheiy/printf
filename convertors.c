@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
+#include <limits.h>
 /**
  * _percent - Function handles the %
  * @ch: The current character in the format string.
@@ -38,13 +39,9 @@ int _percent(char ch, int r_len, va_list arg_ptr)
 		}
 		r_len--;
 	}
-	else if (!ch)
-		exit(EXIT_FAILURE);
 	else
 	{
-		_putchar('%');
-		_putchar(ch);
-		r_len++;
+		r_len +=_other_conversions(ch, r_len, arg_ptr);
 	}
 	r_len++;
 	return (r_len);

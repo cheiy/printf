@@ -1,31 +1,46 @@
 #include "main.h"
-
 /**
- * _rot13 - encode using ceasar cipher by replacing each
- * letter with the letter thirteen places down the
- * alphabet
- * @str: string
- * Return: string
+ * rot13 - Function encodes a string using rot13.
+ * @str: String to encode.
+ *
+ * Description: Function encodes a string using rot13.
+ *
+ * Return: A pointer to encoded string.
  */
-
-char *_rot13(char *str)
+char *rot13(char *str)
 {
-	int a = 0, b;
-	char c[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char c1[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char *alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char *rot_encode = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+	int len;
+	int encode;
+	char *str_copy;
+	int i;
 
-	while (str[a] != '\0')
+	i = 0;
+	len = 0;
+	encode = 0;
+	while (str[len] != '\0')
 	{
-		b = 0;
-		while (b <= 51)
+		while (encode <= 52)
 		{
-			if (c[b] == str[a])
+			if (str[len] == alpha[encode])
 			{
-				str[a] = c1[b];
+				str[len] = rot_encode[encode];
+				break;
 			}
-			b++;
+			else
+			{
+				encode++;
+			}
 		}
-		a++;
+		encode = 0;
+		len++;
 	}
-	return (str);
+	str_copy = malloc(len * sizeof(char));
+	while (i < len)
+	{
+		str_copy[i] = str[i];
+		i++;
+	}
+	return (str_copy);
 }

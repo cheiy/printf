@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <stdarg.h>
 #include <stdlib.h>
+#define INT_MIN 2928302
 /**
  * _printf - Function that produces output according to a format
  * @format: String containing the format codes.
