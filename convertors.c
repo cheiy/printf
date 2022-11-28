@@ -41,7 +41,7 @@ int _percent(char ch, int r_len, va_list arg_ptr)
 	}
 	else
 	{
-		r_len +=_other_conversions(ch, r_len, arg_ptr);
+		r_len += _other_conversions(ch, r_len, arg_ptr);
 	}
 	r_len++;
 	return (r_len);
