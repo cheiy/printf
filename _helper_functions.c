@@ -20,15 +20,14 @@ int _strlen(char *str)
 	return (len);
 }
 /**
- * _strcopy - This function makes a copy of a given string.
+ * _strcpy - This function makes a copy of a given string.
  * @src_str: The source string.
- * 
  *
  * Description: Function makes a copy of a given string.
  *
  * Return: The copy of src_str.
  */
-char * _strcpy(char *src_str)
+char *_strcpy(char *src_str)
 {
 	int src_len;
 	int i;
@@ -36,7 +35,7 @@ char * _strcpy(char *src_str)
 
 	i = 0;
 	src_len = _strlen(src_str);
-	str_copy = malloc(src_len * sizeof(char));	
+	str_copy = malloc(src_len * sizeof(char));
 	while (i < src_len)
 	{
 		str_copy[i] = src_str[i];
